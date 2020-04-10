@@ -35,10 +35,19 @@ if(navigator.geolocation){
                     n--;
                    console.log(n);
                    return n;
+                   printIcon(data.weather[0].icon, data.weather[0].main,data.weather[0].description);
         }
 
             })
-                
+             
+            console.log(data.weather[0].icon);
+            console.log(data.weather[0].main);
+            console.log(data.weather[0].description);
+            function printIcon(icon, type , disc) {
+                HTML = `<img src="./img/weather/${icon}@2x.png" alt=" icon">`
+                console.log(type, disc);
+               return document.querySelector('.icon').innerHTML = HTML;
+            }
         })
 
         
@@ -46,6 +55,11 @@ if(navigator.geolocation){
     })
 }
 });
+
+
+
+
+
 
 function toCels(kelvins) {
     return kelvins - 273,15;
